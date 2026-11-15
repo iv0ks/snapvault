@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Snapvault — Shared snapshots</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <img src="/favicon.svg" alt="" class="brand__mark" width="26" height="26" />
+        <span class="brand__name">Snapvault</span>
+        <span class="brand__tag">shared snapshots</span>
+      </div>
+      <div class="session">
+        <span id="whoami" class="whoami"></span>
+        <button id="logout" class="btn btn--ghost" hidden>Sign out</button>
+      </div>
+    </header>
+
+    <main class="shell">
+      <!-- Login card -->
+      <section id="login-view" class="card login">
+        <h1 class="login__title">Sign in to Snapvault</h1>
+        <p class="login__sub">Save a capture, share it with a teammate by handle.</p>
+        <form id="login-form" class="form">
+          <label class="field">
+            <span>Username</span>
+            <input name="username" autocomplete="username" required />
+          </label>
+          <label class="field">
+            <span>Password</span>
+            <input name="password" type="password" autocomplete="current-password" required />
+          </label>
+          <button class="btn btn--primary" type="submit">Sign in</button>
+          <p id="login-error" class="error" hidden></p>
+        </form>
+      </section>
+
+      <!-- Dashboard -->
+      <section id="dash-view" class="dash" hidden>
+        <div class="dash__head">
+          <h1>Your snapshots</h1>
+          <p class="muted">Each snapshot is addressed by its handle.</p>
+        </div>
+
+        <div class="grid">
+          <section class="card">
+            <h2 class="card__title">My snapshots</h2>
+            <ul class="snaplist" id="snap-rows"></ul>
+          </section>
+
+          <section class="card">
+            <h2 class="card__title">Workspace activity</h2>
+            <p class="muted">Recently shared across the team.</p>
+            <ul class="feed" id="activity-rows"></ul>
+          </section>
+
+          <section class="card">
+            <h2 class="card__title">Open a snapshot</h2>
+            <p class="muted">Paste a handle to view it.</p>
+            <form id="view-form" class="viewer">
+              <input id="view-handle" placeholder="e.g. c25hcDox" required />
+              <button class="btn btn--primary" type="submit">Open</button>
+            </form>
+            <pre id="view-out" class="out" hidden></pre>
+          </section>
+
+          <section class="card">
+            <h2 class="card__title">Edit a snapshot</h2>
+            <p class="muted">Update a snapshot by handle.</p>
+            <form id="edit-form" class="editor">
+              <label class="field">
+                <span>Handle</span>
+                <input id="edit-handle" placeholder="e.g. c25hcDox" required />
+              </label>
+              <label class="field">
+                <span>Share with (username)</span>
+                <input id="edit-shared" placeholder="e.g. alice" />
+              </label>
+              <label class="field">
+                <span>Title</span>
+                <input id="edit-title" placeholder="(leave blank to keep)" />
+              </label>
+              <button class="btn btn--primary" type="submit">Save changes</button>
+              <pre id="edit-out" class="out" hidden></pre>
+            </form>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot"><span>Snapvault</span> · team snapshot sharing · demo environment</footer>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
