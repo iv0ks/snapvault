@@ -1,0 +1,30 @@
+# Node
+node_modules/
+dist/
+*.log
+.npm/
+.pnpm-store/
+
+# TypeScript / build caches
+*.tsbuildinfo
+
+# Drizzle: generated SQL migrations are committed; drizzle-kit temp output is not.
+drizzle/.cache/
+
+# pnpm may generate this in sandboxed environments; not part of the repo.
+pnpm-workspace.yaml
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+
+# The challenge flag is baked into the Docker image at build time and seeded
+# into the victim's snapshot. It must NOT live in the repo, or it would spoil
+# the lab.
+/flag.txt
+
+# Local secrets:
+#  - Postgres credentials / app session secret for local runs.
+#  - Namecheap API credentials for Traefik's ACME DNS-01 challenge.
+.env
