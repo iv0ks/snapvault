@@ -1,6 +1,6 @@
 {
   "name": "snapvault",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "description": "Intentionally vulnerable snapshot-sharing app to practice write IDOR on base64-encoded handles (CWE-639).",
   "type": "module",
